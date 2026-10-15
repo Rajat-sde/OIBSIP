@@ -1,0 +1,160 @@
+/* 1. CSS Custom Properties / Variables */
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --bg-input: #0f172a;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --error: #ef4444;
+    --border: rgba(255, 255, 255, 0.1);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* 2. Global Resets & Centering Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* 3. Main Converter Card UI */
+.converter-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h1 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+}
+
+.card-header p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* 4. Form Controls */
+.converter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75rem;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+}
+
+/* Convert Button */
+.btn {
+    padding: 0.8rem;
+    background-color: var(--primary);
+    color: var(--text-main);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* 5. Error Message Styling */
+.error-message {
+    color: var(--error);
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 1rem;
+    min-height: 1.2rem;
+}
+
+/* 6. Simultaneous Output Display Grid */
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+}
+
+.result-box {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border);
+    padding: 0.8rem 0.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.result-box .label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.result-box .value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    word-break: break-all;
+}
+
+/* 7. Mobile Responsiveness */
+@media (max-width: 480px) {
+    .results-container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,151 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="A simple, responsive temperature converter web app.">
+        <title>Temperature Converter | Task 3</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Portfolio of Rajat - Frontend Developer">
-    <title>Rajat | Personal Portfolio</title>
+        <!-- External Stylesheet -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
 
-    <!-- Google Fonts & Stylesheet -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+        <!-- Main Container -->
+        <main class="converter-card">
+            <header class="card-header">
+                <h1>Temperature Converter</h1>
+                <p>Convert values seamlessly between Celsius, Fahrenheit, and
+                    Kelvin.</p>
+            </header>
 
-<body>
+            <!-- Converter Form -->
+            <form id="converterForm" class="converter-form" novalidate>
 
-    <!-- Navigation Bar -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="#hero" class="logo">Rajat<span>.dev</span></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero / Profile Section -->
-        <section class="hero" id="hero">
-            <div class="container hero-container">
-                <div class="profile-avatar">
-                    <img src="Rajat 1.1MB.png" alt="Rajat Profile Photo" class="avatar-img">
+                <!-- Input Value Field -->
+                <div class="form-group">
+                    <label for="temperatureInput">Degrees</label>
+                    <input
+                        type="number"
+                        id="temperatureInput"
+                        placeholder="Enter value"
+                        step="any"
+                        required>
                 </div>
-                <div class="hero-text">
-                    <p class="greeting">👋 Hi, I am</p>
-                    <h1>Rajat</h1>
-                    <h2>Frontend Developer</h2>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View Projects</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                    </div>
+
+                <!-- Unit Dropdown -->
+                <div class="form-group">
+                    <label for="unitSelect">Type</label>
+                    <select id="unitSelect">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                    </select>
                 </div>
-            </div>
-        </section>
 
-        <!-- About Me Section -->
-        <section class="section" id="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <p class="about-text">
-                    I am a passionate Frontend Developer focused on building clean, accessible, and responsive digital
-                    web experiences.
-                    Currently pursuing my B.Tech in Computer Science Engineering, I enjoy turning complex problems into
-                    simple, beautiful user interfaces.
-                    My interests include web technologies, modern UI/UX design, and open-source development.
-                </p>
-            </div>
-        </section>
+                <!-- Convert Action Button -->
+                <button type="submit" id="convertBtn"
+                    class="btn">Convert</button>
+            </form>
 
-        <!-- Skills Section -->
-        <section class="section" id="skills">
-            <div class="container">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <span class="icon">🌐</span>
-                        <h3>HTML5 & CSS3</h3>
-                        <p>Semantic markup, Flexbox, CSS Grid, and responsive layout design.</p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="icon">⚡</span>
-                        <h3>JavaScript</h3>
-                        <p>ES6+ concepts, DOM manipulation, Async/Await, and REST APIs.</p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="icon">🛠️</span>
-                        <h3>Tools & Git</h3>
-                        <p>Git, GitHub, VS Code, Chrome DevTools, and version control workflows.</p>
-                    </div>
+            <!-- Error Message Display -->
+            <div id="errorMessage" class="error-message"
+                aria-live="polite"></div>
+
+            <!-- Output Display Area -->
+            <section class="results-container" id="resultsContainer">
+                <div class="result-box">
+                    <span class="label">Celsius (°C)</span>
+                    <span class="value" id="celsiusResult">--</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="section" id="projects">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid">
-
-                    <!-- Project 1 -->
-                    <article class="project-card">
-                        <h3>Responsive Landing Page</h3>
-                        <p>A clean, mobile-first product landing page featuring sticky navigation and structured feature
-                            grids.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Rajat-sde" target="_blank" rel="noopener">GitHub Link</a>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card">
-                        <h3>To-Do List Web App</h3>
-                        <p>An interactive task management web application built with vanilla JavaScript and localStorage
-                            support.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Rajat-sde" target="_blank" rel="noopener">GitHub Link</a>
-                        </div>
-                    </article>
-
+                <div class="result-box">
+                    <span class="label">Fahrenheit (°F)</span>
+                    <span class="value" id="fahrenheitResult">--</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section" id="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-content">
-                    <p>Feel free to reach out for collaborations or project inquiries!</p>
-
-                    <div class="contact-info">
-                        <p><strong>Email:</strong> rajat.cse.up@gmail.com</p>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="https://github.com/Rajat-sde" target="_blank" rel="noopener">GitHub</a>
-                        <a href="https://linkedin.com/in/rajat-sde" target="_blank" rel="noopener">LinkedIn</a>
-                    </div>
+                <div class="result-box">
+                    <span class="label">Kelvin (K)</span>
+                    <span class="value" id="kelvinResult">--</span>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Rajat. Built with HTML5 & CSS3.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -1,57 +1,65 @@
-/* 1. CSS Custom Properties / Variables for Consistent Theme */
+/* 1. Theme Variables & Smooth Scroll */
 :root {
-    --primary: #4f46e5;
-    --primary-hover: #4338ca;
-    --dark: #0f172a;
-    --text: #334155;
-    --text-light: #64748b;
-    --bg-light: #f8fafc;
-    --white: #ffffff;
-    --border: #e2e8f0;
-    --radius: 6px;
+    --primary: #06b6d4;
+    --primary-hover: #0891b2;
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+    --radius: 8px;
     --transition: all 0.3s ease;
 }
 
-/* 2. Global Resets & Accessibility Setup */
+html {
+    scroll-behavior: smooth;
+    /* Smooth scroll requirement */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    color: var(--text);
-    background-color: var(--white);
-    line-height: 1.5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
-/* Shared Container for Layout Alignment */
 .container {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Reusable Button Component */
+.section {
+    padding: 4.5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+/* 2. Buttons */
 .btn {
     display: inline-block;
-    padding: 0.6rem 1.2rem;
+    padding: 0.6rem 1.25rem;
     border-radius: var(--radius);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     transition: var(--transition);
-    cursor: pointer;
 }
 
 .btn-primary {
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--bg-dark);
 }
 
 .btn-primary:hover {
@@ -59,35 +67,34 @@ body {
 }
 
 .btn-secondary {
-    background-color: transparent;
-    color: var(--dark);
     border: 1px solid var(--border);
+    color: var(--text-main);
 }
 
 .btn-secondary:hover {
-    border-color: var(--dark);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* 3. Header & Sticky Navbar */
+/* 3. Navigation Bar */
 .navbar {
-    background-color: var(--white);
-    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid var(--border);
     z-index: 100;
 }
 
 .nav-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem 0;
 }
 
 .logo {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--dark);
+    color: var(--text-main);
     text-decoration: none;
 }
 
@@ -102,8 +109,8 @@ body {
 }
 
 .nav-links a {
+    color: var(--text-muted);
     text-decoration: none;
-    color: var(--text-light);
     font-weight: 500;
     transition: var(--transition);
 }
@@ -115,149 +122,157 @@ body {
 /* 4. Hero Section */
 .hero {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--bg-light) 0%, #e0e7ff 100%);
-    text-align: center;
 }
 
-.hero-content {
-    max-width: 700px;
-    margin: 0 auto;
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
 }
 
-.hero-content h1 {
-    font-size: 2.4rem;
-    color: var(--dark);
-    margin-bottom: 1rem;
+.avatar-img {
+    width: 140px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    object-fit: cover;
 }
 
-.hero-content p {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
+.greeting {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+}
+
+.hero-text h2 {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 1.2rem;
 }
 
 .hero-buttons {
     display: flex;
-    justify-content: center;
     gap: 1rem;
 }
 
-/* 5. Features Section (CSS Grid) */
-.features {
-    padding: 4rem 0;
-}
-
-.section-title {
+/* 5. About Section */
+.about-text {
+    max-width: 750px;
+    margin: 0 auto;
     text-align: center;
-    font-size: 1.8rem;
-    color: var(--dark);
-    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
 }
 
-.features-grid {
+/* 6. Skills Section */
+.skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
 }
 
-.feature-card {
-    background-color: var(--bg-light);
+.skill-card {
+    background-color: var(--bg-card);
     padding: 1.5rem;
     border-radius: var(--radius);
     border: 1px solid var(--border);
-    transition: var(--transition);
 }
 
-.feature-card:hover {
-    transform: translateY(-3px);
+.skill-card .icon {
+    font-size: 1.8rem;
 }
 
-.feature-card h3 {
-    color: var(--dark);
-    margin-bottom: 0.5rem;
+.skill-card h3 {
+    margin: 0.5rem 0;
 }
 
-/* 6. Call To Action (CTA) */
-.cta {
-    background-color: var(--primary);
-    color: var(--white);
-    padding: 3.5rem 0;
-    text-align: center;
-}
-
-.cta-container h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.cta-container p {
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-}
-
-.btn-cta {
-    background-color: var(--white);
-    color: var(--primary);
-}
-
-.btn-cta:hover {
-    background-color: var(--bg-light);
-}
-
-/* 7. Footer */
-.footer {
-    background-color: var(--dark);
-    color: var(--white);
-    padding: 1.5rem 0;
+.skill-card p {
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
-.footer-container {
+/* 7. Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    margin: 0.8rem 0 1.2rem;
+    font-size: 0.95rem;
+}
+
+.project-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* 8. Contact & Footer */
+.contact-content {
+    text-align: center;
+}
+
+.contact-info {
+    margin: 1rem 0;
+    font-size: 1.1rem;
 }
 
 .social-links {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .social-links a {
-    color: var(--white);
+    color: var(--text-main);
     text-decoration: none;
-    opacity: 0.8;
     transition: var(--transition);
 }
 
 .social-links a:hover {
-    opacity: 1;
     color: var(--primary);
 }
 
-/* 8. Media Queries for Mobile Responsiveness */
+.footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* 9. Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
-    .nav-container {
+    .hero-container {
         flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .nav-btn {
-        display: none;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
+        text-align: center;
     }
 
     .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
     }
 
-    .footer-container {
+    .nav-container {
         flex-direction: column;
         gap: 0.8rem;
-        text-align: center;
     }
 }

@@ -1,99 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Basic Meta Tags for SEO & Responsiveness -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description"
-            content="A simple, responsive landing page built with semantic HTML5 and CSS3.">
-        <title>Modern Landing Page</title>
 
-        <!-- External Stylesheet -->
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio of Rajat - Frontend Developer">
+    <title>Rajat | Personal Portfolio</title>
 
-        <!-- Header Section: Logo and Navigation -->
-        <header class="navbar">
-            <div class="container nav-container">
-                <a href="#" class="logo">OIBSIP <span> Developers</span></a>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <a href="#cta" class="btn btn-primary nav-btn">Get Started</a>
-            </div>
-        </header>
+    <!-- Google Fonts & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <!-- Hero Section: Main Banner and Call to Action -->
-        <section class="hero" id="home">
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">Rajat<span>.dev</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero / Profile Section -->
+        <section class="hero" id="hero">
             <div class="container hero-container">
-                <div class="hero-content">
-                    <h1>Build Modern Web Applications</h1>
-                    <p>A clean, lightweight landing page designed to demonstrate
-                        modern responsive layout techniques using HTML5 and CSS
-                        flexbox/grid.</p>
+                <div class="profile-avatar">
+                    <img src="Rajat 1.1MB.png" alt="Rajat Profile Photo" class="avatar-img">
+                </div>
+                <div class="hero-text">
+                    <p class="greeting">👋 Hi, I am</p>
+                    <h1>Rajat</h1>
+                    <h2>Frontend Developer</h2>
                     <div class="hero-buttons">
-                        <a href="#cta" class="btn btn-primary">Start Free
-                            Trial</a>
-                        <a href="#features" class="btn btn-secondary">Learn
-                            More</a>
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section: CSS Grid Card Layout -->
-        <section class="features" id="features">
+        <!-- About Me Section -->
+        <section class="section" id="about">
             <div class="container">
-                <h2 class="section-title">Key Features</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>⚡ Fast Performance</h3>
-                        <p>Built with pure HTML and CSS to ensure minimal page
-                            load time and cross-browser compatibility.</p>
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    I am a passionate Frontend Developer focused on building clean, accessible, and responsive digital
+                    web experiences.
+                    Currently pursuing my B.Tech in Computer Science Engineering, I enjoy turning complex problems into
+                    simple, beautiful user interfaces.
+                    My interests include web technologies, modern UI/UX design, and open-source development.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <span class="icon">🌐</span>
+                        <h3>HTML5 & CSS3</h3>
+                        <p>Semantic markup, Flexbox, CSS Grid, and responsive layout design.</p>
                     </div>
-                    <div class="feature-card">
-                        <h3>📱 Fully Responsive</h3>
-                        <p>Adapts fluidly across all screen sizes using CSS
-                            media queries and modern layout modules.</p>
+                    <div class="skill-card">
+                        <span class="icon">⚡</span>
+                        <h3>JavaScript</h3>
+                        <p>ES6+ concepts, DOM manipulation, Async/Await, and REST APIs.</p>
                     </div>
-                    <div class="feature-card">
-                        <h3>🛠️ Clean Architecture</h3>
-                        <p>Modular code structure following web accessibility
-                            and standard SEO best practices.</p>
+                    <div class="skill-card">
+                        <span class="icon">🛠️</span>
+                        <h3>Tools & Git</h3>
+                        <p>Git, GitHub, VS Code, Chrome DevTools, and version control workflows.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action Section -->
-        <section class="cta" id="cta">
-            <div class="container cta-container">
-                <h2>Ready to Get Started?</h2>
-                <p>Join us today and enhance your web development skills to the
-                    next level.</p>
-                <a href="#" class="btn btn-primary btn-cta">Join Now</a>
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <h3>Responsive Landing Page</h3>
+                        <p>A clean, mobile-first product landing page featuring sticky navigation and structured feature
+                            grids.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Rajat-sde" target="_blank" rel="noopener">GitHub Link</a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <h3>To-Do List Web App</h3>
+                        <p>An interactive task management web application built with vanilla JavaScript and localStorage
+                            support.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Rajat-sde" target="_blank" rel="noopener">GitHub Link</a>
+                        </div>
+                    </article>
+
+                </div>
             </div>
         </section>
 
-        <!-- Footer Section: Copyright & Social Links -->
-        <footer class="footer" id="contact">
-            <div class="container footer-container">
-                <p>&copy; 2026 OIBSIP Developers. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://github.com" target="_blank"
-                        rel="noopener">GitHub</a>
-                    <a href="https://linkedin.com" target="_blank"
-                        rel="noopener">LinkedIn</a>
-                    <a href="https://twitter.com" target="_blank"
-                        rel="noopener">Twitter</a>
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>Feel free to reach out for collaborations or project inquiries!</p>
+
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> rajat.cse.up@gmail.com</p>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/Rajat-sde" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://linkedin.com/in/rajat-sde" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </section>
+    </main>
 
-    </body>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Rajat. Built with HTML5 & CSS3.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
